@@ -30,8 +30,8 @@ function BookForm() {
           setSuccessMessage(null);
         }, 2000);
       } else {
-        console.error("Error adding book:", response.data);
-        setErrorMessage(" Please fill all fields");
+        console.error(`${response.data.error}`);
+        setErrorMessage(`${response.data.error}`);
 
         // Automatically hide the success message after 5 seconds
         setTimeout(() => {
@@ -40,12 +40,7 @@ function BookForm() {
       }
     } catch (error) {
       console.error("Error adding book:", error);
-      setErrorMessage(" Please fill all fields");
-
       // Automatically hide the success message after 5 seconds
-      setTimeout(() => {
-        setErrorMessage(null);
-      }, 2000);
     }
   };
 
